@@ -1,0 +1,15 @@
+<div class="p-3"><p class="text-4xl text-red-500 font-bold">hello world!</p></div>
+<% unless user_signed_in? %>
+  <%= link_to "Sign In", new_user_session_path, class: "text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800" %>
+  <%= link_to "Sign Up", new_user_registration_path, class: "text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800" %>
+<% else %>
+  <%= button_to "Sign Out", destroy_user_session_path, method: :delete, class: "text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800" %>
+<% end %>
+<%= link_to "New appointment", new_appointment_path, class: "text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800" %>
+<% if user_signed_in? %>
+<ul>
+  <% @appointments.each do |appointment| %>
+    <li><%=  appointment.startTime %> - <%= appointment.duration %> minutes</li>
+  <% end %>
+  </ul>
+<% end %>

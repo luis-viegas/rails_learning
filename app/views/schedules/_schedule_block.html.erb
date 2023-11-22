@@ -1,0 +1,8 @@
+<div class="schedule-block border-blue border-4">
+  <p>
+    <strong>Starting Hour:</strong>
+    <strong><%= block.week_day.humanize %></strong> -
+    <%= block.starting_hour.strftime('%H:%M') %> -
+    <%= block.end_hour.strftime('%H:%M') %>
+  </p>
+</div>

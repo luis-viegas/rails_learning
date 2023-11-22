@@ -1,0 +1,15 @@
+<div class="schedule">
+  <p>
+    <strong>Name:</strong>
+    <%= schedule.name %>
+  </p>
+
+  <p>
+    <strong>Schedule Blocks:</strong>
+    <div class="border p-5">
+    <% schedule.schedule_blocks.each do |block| %>
+      <%= render partial: 'schedule_block', locals: { block: block } %>
+    <% end %>
+    </div>
+  </p>
+</div>

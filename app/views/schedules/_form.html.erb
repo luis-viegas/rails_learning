@@ -1,0 +1,24 @@
+<%= form_with(model: schedule, local: true) do |form| %>
+   <div class="mb-5">
+    <%= form.label :name%>
+    <%= form.text_field :name %>
+   </div>
+    <div>
+  
+    <%= form.fields_for :schedule_blocks do |block_form| %>
+        <div class="mb-5">
+      <%= block_form.label :starting_hour %>
+      <%= block_form.time_field :starting_hour %>
+  
+      <%= block_form.label :end_hour %>
+      <%= block_form.time_field :end_hour %>
+  
+      <%= block_form.label :week_day %>
+      <%= block_form.select :week_day, ScheduleBlock.week_days.keys %>
+        </div>
+    <% end %>
+
+    </div>
+  
+    <%= form.submit "Submit", class: "text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800" %>
+  <% end %>
